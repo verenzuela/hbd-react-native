@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
+import Styles from '../../commons/styles';
+
 export default class About extends Component {
   constructor(props) {
     super(props);
@@ -9,8 +11,16 @@ export default class About extends Component {
   }
 
   render() {
+    
+    const {
+      container, 
+      centerAll,
+      iconColor,
+      borderColor,
+    } = Styles;
+
     return (
-      <View>
+      <View style={[container, centerAll]}>
         <Text> About </Text>
       </View>
     );
