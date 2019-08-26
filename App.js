@@ -4,7 +4,7 @@ import {
   Platform, 
   StyleSheet, 
   TouchableOpacity, 
-  Alert 
+  Image 
 } from 'react-native';
 
 import { 
@@ -16,15 +16,13 @@ import {
   DrawerActions 
 } from 'react-navigation';
 
-
 import Icon from 'react-native-vector-icons/Ionicons';
+import CustomSidebarMenu from './app/components/sidebar';
 
 import Maps from './app/screens/maps';
 import Search from './app/screens/search';
 import About from './app/screens/about';
 import Support from './app/screens/support';
-
-import CustomSidebarMenu from './app/components/sidebar';
 
 class App extends Component {
   render() {
@@ -76,7 +74,7 @@ const HomeTabNavigator = createBottomTabNavigator(
       
       return {
         headerTitle: titleName,
-        headerStyle: { backgroundColor: '#617792' },
+        headerStyle: { backgroundColor: '#2E5C65' },
         headerTintColor: '#fff',
       };
     },
@@ -95,7 +93,7 @@ const HomeTabNavigator = createBottomTabNavigator(
         }
         return <Icon name={iconName} name={iconName} size={25} color={tintColor} />;
       },
-      tabBarOptions: { activeTintColor:'#617792', }
+      tabBarOptions: { activeTintColor:'#2E5C65', }
     })
   }
 );
@@ -114,7 +112,13 @@ const HomeStackNavigator = createStackNavigator(
             <Icon name={Platform.OS === "ios" ? "ios-menu" : "md-menu"} color='#fff' size={30}  />
           </TouchableOpacity>
         ),
-        headerStyle: { backgroundColor: '#617792' },
+        headerRight: (
+          <Image
+            style={{ height: 40, width: 40, marginRight: 10, }}
+            source={ require('./app/assets/png/HBD_logo_white_small.png') }
+          />
+        ),
+        headerStyle: { backgroundColor: '#2E5C65' },
         headerTintColor: '#fff',
       };
     }
