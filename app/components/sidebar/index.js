@@ -62,12 +62,12 @@ export default class Sidebar extends Component {
         <View style={ styles.topHeigthHeaderLogo }>
           <View style={ styles.headerLogo } >
             <TouchableOpacity style={{ height: 60, width: '80%', }} >
-                <Image
-                  style={{ height: '100%', width: '100%', resizeMode: 'contain' }}
-                  source={ require('../../assets/png/HBD_logo_color.png') }
-                  resizeMode="contain"
-                  resizeMethod="resize"
-                />
+              <Image
+                style={{ height: '100%', width: '100%', resizeMode: 'contain' }}
+                source={{ uri: 'https://www.hotelsbyday.com/images/HBD_logo_color.png' }}
+                resizeMode="contain"
+                resizeMethod="resize"
+              />
             </TouchableOpacity>
           </View>
         </View>
