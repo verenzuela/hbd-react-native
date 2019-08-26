@@ -114,7 +114,7 @@ const HomeStackNavigator = createStackNavigator(
         ),
         headerRight: (
           <Image
-            style={{ height: 40, width: 40, marginRight: 10, }}
+            style={{ height: 35, width: 35, marginRight: 10, }}
             source={ require('./app/assets/png/HBD_logo_white_small.png') }
           />
         ),
