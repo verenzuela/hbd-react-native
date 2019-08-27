@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 
 import Styles from '../../commons/styles';
 
-export default class Maps extends Component {
+export default class How extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,7 +11,7 @@ export default class Maps extends Component {
   }
 
   render() {
-
+    
     const {
       container, 
       centerAll,
@@ -21,15 +21,7 @@ export default class Maps extends Component {
 
     return (
       <View style={[container, centerAll]}>
-        
-        <View style={[ centerAll, { width:'100%', height: 50, backgroundColor: '#FAF8F8', } ]}>
-          <Text style={{ fontSize: 18, }}> City: New York | August 27, 2019 </Text>
-        </View>
-
-        <View style={[container, centerAll]}>
-          <Text> maps </Text>
-        </View>
-
+        <Text> How </Text>
       </View>
     );
   }

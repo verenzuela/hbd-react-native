@@ -6,7 +6,9 @@ import Styles from '../../commons/styles';
 export default class Search extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
+      changeType: this.props.changeType,
     };
   }
 
@@ -21,7 +23,7 @@ export default class Search extends Component {
 
     return (
       <View style={[container, centerAll]}>
-        <Text> search </Text>
+        <Text> Change { this.state.changeType } </Text>
       </View>
     );
   }

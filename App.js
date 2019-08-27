@@ -21,8 +21,10 @@ import CustomSidebarMenu from './app/components/sidebar';
 
 import Maps from './app/screens/maps';
 import Search from './app/screens/search';
-import About from './app/screens/about';
 import Support from './app/screens/support';
+import HowItWorks from './app/screens/how';
+import About from './app/screens/about';
+
 
 class App extends Component {
   render() {
@@ -41,23 +43,23 @@ const HomeTabNavigator = createBottomTabNavigator(
     },
 
     Search: { 
-      screen: Search,
+      screen : props => <Search {...props} changeType={'city'} />,
       navigationOptions: {
-        title: 'Change city',
+        title: 'Change City',
       },
     },
 
-    Support: { 
-      screen: Support,
+    Date: { 
+      screen: props => <Search {...props} changeType={'date'} />,
       navigationOptions: {
-        title: 'Support',
+        title: 'Change Date',
       },
     },
 
-    About: { 
-      screen: About,
+    How: { 
+      screen: HowItWorks,
       navigationOptions: {
-        title: 'About',
+        title: 'How It Works',
       },
     },
 
@@ -70,7 +72,9 @@ const HomeTabNavigator = createBottomTabNavigator(
 
       if(routeName=='Home') titleName = 'HotelsByDay';
       if(routeName=='Search') titleName = 'Find hotel by city';
+      if(routeName=='Date') titleName = 'Change arrival date';
       if(routeName=='About') titleName = 'About HotelsByDay';
+      if(routeName=='How') titleName = 'How It Works';
       
       return {
         headerTitle: titleName,
@@ -86,10 +90,10 @@ const HomeTabNavigator = createBottomTabNavigator(
           iconName = Platform.OS === "ios" ? 'ios-home' : 'md-home';
         } else if (routeName === 'Search') {
           iconName = Platform.OS === "ios" ? 'ios-search' : 'md-search';
-        } else if (routeName === 'Support') {
-          iconName = Platform.OS === "ios" ? 'ios-call' : 'md-call';
-        } else if (routeName === 'About') {
-          iconName = Platform.OS === "ios" ? 'ios-information-circle' : 'md-information-circle';
+        } else if (routeName === 'Date') {
+          iconName = Platform.OS === "ios" ? 'ios-calendar' : 'md-calendar';
+        } else if (routeName === 'How') {
+          iconName = Platform.OS === "ios" ? 'ios-construct' : 'md-construct';
         }
         return <Icon name={iconName} name={iconName} size={25} color={tintColor} />;
       },
@@ -101,7 +105,6 @@ const HomeTabNavigator = createBottomTabNavigator(
 const HomeStackNavigator = createStackNavigator(
   { 
     HomeTabNavigator:  { screen: HomeTabNavigator },
-    
     
   },
   {

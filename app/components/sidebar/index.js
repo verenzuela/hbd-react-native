@@ -91,7 +91,16 @@ export default class Sidebar extends Component {
               <View style={sidebarNavBarImg}>
                 <Text><Icon style={[iconColor, sidebarIconSize]} name={Platform.OS === "ios" ? "ios-search" : "md-search"} /></Text>
               </View>
-              <Text style={sidebarNavBarItemTxt}>Change city</Text>
+              <Text style={sidebarNavBarItemTxt}>Change City</Text>
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity activeOpacity={0.8} style={sidebarNavBarItemHeader} >
+            <View style={sidebarNavBarItemCont}>
+              <View style={sidebarNavBarImg}>
+                <Text><Icon style={[iconColor, sidebarIconSize]} name={Platform.OS === "ios" ? "ios-calendar" : "md-calendar"} /></Text>
+              </View>
+              <Text style={sidebarNavBarItemTxt}>Change Date</Text>
             </View>
           </TouchableOpacity>
 
@@ -101,6 +110,15 @@ export default class Sidebar extends Component {
                 <Text><Icon style={[iconColor, sidebarIconSize]} name={Platform.OS === "ios" ? "ios-call" : "md-call"} /></Text>
               </View>
               <Text style={sidebarNavBarItemTxt}>Support</Text>
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity activeOpacity={0.8} style={sidebarNavBarItemHeader} >
+            <View style={sidebarNavBarItemCont}>
+              <View style={sidebarNavBarImg}>
+                <Text><Icon style={[iconColor, sidebarIconSize]} name={Platform.OS === "ios" ? "ios-construct" : "md-construct"} /></Text>
+              </View>
+              <Text style={sidebarNavBarItemTxt}>How It Works</Text>
             </View>
           </TouchableOpacity>
 
