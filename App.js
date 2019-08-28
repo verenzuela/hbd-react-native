@@ -4,7 +4,7 @@ import {
   Platform, 
   StyleSheet, 
   TouchableOpacity, 
-  Image 
+  Image,
 } from 'react-native';
 
 import { 
@@ -13,7 +13,7 @@ import {
   createDrawerNavigator, 
   createBottomTabNavigator, 
   createStackNavigator, 
-  DrawerActions 
+  DrawerActions,
 } from 'react-navigation';
 
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -24,7 +24,6 @@ import Search from './app/screens/search';
 import Support from './app/screens/support';
 import HowItWorks from './app/screens/how';
 import About from './app/screens/about';
-
 
 class App extends Component {
   render() {
@@ -71,7 +70,7 @@ const HomeTabNavigator = createBottomTabNavigator(
       titleName = routeName;
 
       if(routeName=='Home') titleName = 'HotelsByDay';
-      if(routeName=='Search') titleName = 'Find hotel by city';
+      if(routeName=='Search') titleName = 'Finding hotels by city';
       if(routeName=='Date') titleName = 'Change arrival date';
       if(routeName=='About') titleName = 'About HotelsByDay';
       if(routeName=='How') titleName = 'How It Works';
@@ -105,7 +104,6 @@ const HomeTabNavigator = createBottomTabNavigator(
 const HomeStackNavigator = createStackNavigator(
   { 
     HomeTabNavigator:  { screen: HomeTabNavigator },
-    
   },
   {
     defaultNavigationOptions: ({ navigation }) => {
@@ -140,8 +138,6 @@ const AppDrawerNavigator = createDrawerNavigator(
 
 const AppSwitchNavigator = createSwitchNavigator({
   home: { screen: AppDrawerNavigator },
-  
-  
 });
 
 const AppContainer = createAppContainer(AppSwitchNavigator);

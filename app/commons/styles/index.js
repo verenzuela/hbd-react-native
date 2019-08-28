@@ -74,5 +74,36 @@ export default StyleSheet.create({
 	},
 /**** END CSS SIDEBAR ****/
 /************************/
+
+
+/*********************/
+/**** CSS SEARCH ****/
+
+	searchCont: {
+		justifyContent: 'center',
+		flex: 1,
+		padding: 16,
+	},
+	searchTxtInput: {
+		fontSize: 16,
+		height: 40,
+		borderWidth: 1,
+		paddingLeft: 10,
+		backgroundColor: '#FFFFFF',
+	},
+	searchTxtStyle: {
+		padding: 10,
+		fontSize: 16,
+	},
+	searchBtnCurrentLocation: {
+		height: 50, 
+		borderWidth:1, 
+		justifyContent: 'center', 
+		alignItems: 'center',
+	},
+
+
+/**** END CSS SEARCH ****/
+/************************/
     
 })

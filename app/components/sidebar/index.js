@@ -127,7 +127,7 @@ export default class Sidebar extends Component {
               <View style={sidebarNavBarImg}>
                 <Text><Icon style={[iconColor, sidebarIconSize]} name={Platform.OS === "ios" ? "ios-information-circle" : "md-information-circle"} /></Text>
               </View>
-              <Text style={sidebarNavBarItemTxt}>About HBD</Text>
+              <Text style={sidebarNavBarItemTxt}>About Us</Text>
             </View>
           </TouchableOpacity>
 
