@@ -25,6 +25,10 @@ import Support from './app/screens/support';
 import HowItWorks from './app/screens/how';
 import About from './app/screens/about';
 
+import moment from 'moment';
+
+let date = moment();
+
 class App extends Component {
   render() {
     return <AppContainer />;
@@ -35,7 +39,7 @@ export default App;
 const HomeTabNavigator = createBottomTabNavigator(
   { 
     Home: { 
-      screen: Maps,
+      screen: props => <Maps {...props} location={'miami'} dateArrival={date.format('YYYY-MM-DD')} />,
       navigationOptions: {
         title: 'Home',
       },

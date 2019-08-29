@@ -9,12 +9,15 @@ import {
   Alert, 
   TouchableOpacity,
 } from 'react-native';
-
 import Styles from '../../commons/styles';
-
+import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
 import hotelsbydayApi from '../../api/hotelsbyday.js';
+import moment from 'moment';
+
+let calendarDate = moment();
 
 export default class Search extends Component {
+
   constructor(props) {
     super(props);
     this.hotelsbyday = new hotelsbydayApi();
@@ -22,6 +25,8 @@ export default class Search extends Component {
       loading: false,
       changeType: this.props.changeType,
       citiesList: [],
+      calendarDate: calendarDate.format('YYYY-MM-DD'),
+      horizontal: false,
     };
     this.arrayholder = [];
   }
@@ -38,6 +43,18 @@ export default class Search extends Component {
 
   };
 
+  changeCity = (cityName) => {
+    this.props.navigation.navigate('Home', {
+      location: cityName,
+    });
+  };
+
+  changeDate = (date) => {
+    this.props.navigation.navigate('Home', {
+      dateArrival: date,
+    });
+  };
+
   getCities = () => {
     this.hotelsbyday.getCities().then( res => {
       this.setState({
@@ -51,17 +68,26 @@ export default class Search extends Component {
     });
   };
 
+  onDayPress = (date) => {
+    this.changeDate(date);
+  };
+
+  onCityPress = (city) => {
+    this.changeCity(city);
+  };
+
+  getCityByLocation = () => {
+    console.warn('Get city by location');
+  };
+
+
   SearchFilterFunction(text) {
-    //passing the inserted text in textinput
     const newData = this.arrayholder.filter(function(item) {
-      //applying filter for the inserted text in search bar
       const itemData = item.value ? item.value.toUpperCase() : ''.toUpperCase();
       const textData = text.toUpperCase();
       return itemData.indexOf(textData) > -1;
     });
     this.setState({
-      //setting the filtered newData on datasource
-      //After setting the data it will automatically re-render the view
       citiesList: newData,
       text: text,
     });
@@ -69,7 +95,6 @@ export default class Search extends Component {
 
 
   ListViewItemSeparator = () => {
-    //Item sparator view
     return (
       <View
         style={{
@@ -122,7 +147,11 @@ export default class Search extends Component {
             data={this.state.citiesList}
             ItemSeparatorComponent={this.ListViewItemSeparator}
             renderItem={({ item }) => (
-              <Text style={searchTxtStyle}>{item.value}</Text>
+
+              <TouchableOpacity style={{flex: 1, flexDirection: 'row',}} onPress={_ => this.onCityPress( item.value )} >
+                <Text style={searchTxtStyle}>{item.value}</Text>
+              </TouchableOpacity>
+
             )}
             enableEmptySections={true}
             style={{ marginTop: 10 }}
@@ -134,7 +163,7 @@ export default class Search extends Component {
           </View>
 
           <View style={[ backgroundColor, borderColor, searchBtnCurrentLocation ]}>
-            <TouchableOpacity style={{flex: 1, flexDirection: 'row',}} >
+            <TouchableOpacity style={{flex: 1, flexDirection: 'row',}} onPress={_ => this.getCityByLocation()} >
               <View style={{ justifyContent: 'center', alignItems: 'center', }}> 
                 <Text style={{ color: 'white', fontSize: 16, alignItems: 'center', textAlign: 'center' }} >
                   GET YOUR CITY BY CURRENT LOCATION
@@ -146,7 +175,27 @@ export default class Search extends Component {
         </View>
       );
     }
+
+
+    if(this.state.changeType == 'date'){
+      return (
+        <View style={{ flex: 1 }}>
+          <Calendar
+            current={this.state.calendarDate}
+            headerData={{
+              calendarDate: calendarDate.format('DD MMM, YYYY')
+            }}
+            style={{
+              paddingLeft: 10, paddingRight: 10
+            }}
+            horizontal={this.state.horizontal}
+            onDayPress={this.onDayPress}
+          />
+        </View>
+      );
+    }
     
+
     return(
       <View style={[container, centerAll]}>
         <Text> Change { this.state.changeType } </Text>

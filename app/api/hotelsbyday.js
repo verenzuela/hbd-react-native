@@ -1,11 +1,25 @@
+import credentials from '../commons/credentials.js';
+var base64 = require('base-64');
+
 export default class hotelsbyday {
 
-	constructor(){}
+	constructor(){
+		this.hbd_usr = credentials.hbd_usr;
+		this.hbd_pss = credentials.hbd_pss;
+		this.base64 = base64;
+	}
 
-	static getQueryURL = (lan='en') => {
+	static getQueryWebURL = (lan='en') => {
 		let baseUrl = 'https://www.hotelsbyday.com/';
 		let url = baseUrl;
 		url += lan;
+		return url; 
+	};
+
+	static getQueryApiURL = (ver) => {
+		let baseUrl = 'https://www.hotelsbyday.com/api/';
+		let url = baseUrl;
+		url += ver;
 		return url; 
 	};
 
@@ -33,7 +47,7 @@ export default class hotelsbyday {
 
 
 	getCities = ($cityName='') => {
-		let url = hotelsbyday.getQueryURL('en');
+		let url = hotelsbyday.getQueryWebURL('en');
 		let options = {};
 
 		if($cityName != ''){
@@ -44,5 +58,28 @@ export default class hotelsbyday {
 		
 		return this.urlFetch(url, options);
 	};
+
+
+	getHotelsByCity = (cityName, date) => {
+		
+		let url = hotelsbyday.getQueryApiURL('v3');
+		let options = {
+			method: "GET",
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json',
+				'Authorization': `Basic ${this.base64.encode(this.hbd_usr + ":" + this.hbd_pss)}` 
+			}
+        };
+
+		url += '/hotels?location='+cityName+'&language=en-US&specific_date='+date;
+
+		return this.urlFetch(url, options);
+
+	}
+
+	getHotelsByGeo = (lat, lon, date) => {
+
+	}
 
 }
