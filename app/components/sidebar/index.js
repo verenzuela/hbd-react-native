@@ -35,7 +35,14 @@ export default class Sidebar extends Component {
 
   componentDidMount(){
 
-  }
+  };
+
+  navigateToScreen = route => () => {
+    const navigateAction = NavigationActions.navigate({
+      routeName: route,
+    });
+    this.props.navigation.dispatch(navigateAction);
+  };
 
   render() {
 
@@ -60,7 +67,7 @@ export default class Sidebar extends Component {
         
         <View style={ sidebarTopHeigthHeaderLogo }>
           <View style={[ sidebarHeaderLogo, borderColor ]} >
-            <TouchableOpacity style={{ height: 60, width: '80%', }} >
+            <TouchableOpacity style={{ height: 60, width: '80%', }} onPress={ this.navigateToScreen('Home') } >
               <Image
                 style={{ height: '100%', width: '100%', resizeMode: 'contain' }}
                 source={ require('../../assets/png/HBD_logo_color.png') }
@@ -77,7 +84,7 @@ export default class Sidebar extends Component {
         
         <ScrollView>
 
-          <TouchableOpacity activeOpacity={0.8} style={sidebarNavBarItemHeader} >
+          <TouchableOpacity activeOpacity={0.8} style={sidebarNavBarItemHeader} onPress={ this.navigateToScreen('Home') } >
             <View style={sidebarNavBarItemCont}>
               <View style={sidebarNavBarImg}>
                 <Text><Icon style={[iconColor, sidebarIconSize]} name={Platform.OS === "ios" ? "ios-home" : "md-home"} /></Text>
@@ -86,7 +93,7 @@ export default class Sidebar extends Component {
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity activeOpacity={0.8} style={sidebarNavBarItemHeader} >
+          <TouchableOpacity activeOpacity={0.8} style={sidebarNavBarItemHeader} onPress={ this.navigateToScreen('Search') } >
             <View style={sidebarNavBarItemCont}>
               <View style={sidebarNavBarImg}>
                 <Text><Icon style={[iconColor, sidebarIconSize]} name={Platform.OS === "ios" ? "ios-search" : "md-search"} /></Text>
@@ -95,7 +102,7 @@ export default class Sidebar extends Component {
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity activeOpacity={0.8} style={sidebarNavBarItemHeader} >
+          <TouchableOpacity activeOpacity={0.8} style={sidebarNavBarItemHeader} onPress={ this.navigateToScreen('Date') } >
             <View style={sidebarNavBarItemCont}>
               <View style={sidebarNavBarImg}>
                 <Text><Icon style={[iconColor, sidebarIconSize]} name={Platform.OS === "ios" ? "ios-calendar" : "md-calendar"} /></Text>
@@ -104,7 +111,7 @@ export default class Sidebar extends Component {
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity activeOpacity={0.8} style={sidebarNavBarItemHeader} >
+          <TouchableOpacity activeOpacity={0.8} style={sidebarNavBarItemHeader} onPress={ this.navigateToScreen('support') } >
             <View style={sidebarNavBarItemCont}>
               <View style={sidebarNavBarImg}>
                 <Text><Icon style={[iconColor, sidebarIconSize]} name={Platform.OS === "ios" ? "ios-call" : "md-call"} /></Text>
@@ -113,7 +120,7 @@ export default class Sidebar extends Component {
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity activeOpacity={0.8} style={sidebarNavBarItemHeader} >
+          <TouchableOpacity activeOpacity={0.8} style={sidebarNavBarItemHeader} onPress={ this.navigateToScreen('How') } >
             <View style={sidebarNavBarItemCont}>
               <View style={sidebarNavBarImg}>
                 <Text><Icon style={[iconColor, sidebarIconSize]} name={Platform.OS === "ios" ? "ios-construct" : "md-construct"} /></Text>
@@ -122,7 +129,7 @@ export default class Sidebar extends Component {
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity activeOpacity={0.8} style={sidebarNavBarItemHeader} >
+          <TouchableOpacity activeOpacity={0.8} style={sidebarNavBarItemHeader} onPress={ this.navigateToScreen('about') } >
             <View style={sidebarNavBarItemCont}>
               <View style={sidebarNavBarImg}>
                 <Text><Icon style={[iconColor, sidebarIconSize]} name={Platform.OS === "ios" ? "ios-information-circle" : "md-information-circle"} /></Text>

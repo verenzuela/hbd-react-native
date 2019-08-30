@@ -27,7 +27,7 @@ import About from './app/screens/about';
 
 import moment from 'moment';
 
-let date = moment();
+let date = moment(new Date()).add(1,'days');
 
 class App extends Component {
   render() {
@@ -108,6 +108,20 @@ const HomeTabNavigator = createBottomTabNavigator(
 const HomeStackNavigator = createStackNavigator(
   { 
     HomeTabNavigator:  { screen: HomeTabNavigator },
+    support: { 
+      screen: Support,
+      navigationOptions: () => ({
+        title: 'Support',
+        headerBackTitle: null
+      })
+    },
+    about: { 
+      screen: About,
+      navigationOptions: () => ({
+        title: 'About US',
+        headerBackTitle: null
+      })
+    },
   },
   {
     defaultNavigationOptions: ({ navigation }) => {
