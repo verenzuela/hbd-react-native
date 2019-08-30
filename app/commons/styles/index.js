@@ -29,12 +29,12 @@ export default StyleSheet.create({
 		alignItems:'center', 
 		padding:5, 
 		borderBottomWidth:1,
-		top: Platform.OS === 'ios' ? 25 : 10,
+		top: Platform.OS === 'ios' ? 25 : 5,
 	},
 	sidebarClose: {
 		position:'absolute',
-		top: Platform.OS === 'ios' ? 25 : 10,
-		right:10
+		top: Platform.OS === 'ios' ? 25 : 5,
+		right: Platform.OS === 'ios' ? 10 : 5,
 	},
 	sidebarNavBarItemHeader:{
 		paddingLeft: 5,
@@ -75,6 +75,19 @@ export default StyleSheet.create({
 /**** END CSS SIDEBAR ****/
 /************************/
 
+
+/*********************/
+/**** CSS MAPS ****/
+
+	mapsSearchbuttons: {
+		height: 40, 
+		backgroundColor: '#f5f5f2', 
+		marginLeft: 5, 
+		marginRight: 5
+	},
+
+/**** END CSS SEARCH ****/
+/************************/
 
 /*********************/
 /**** CSS SEARCH ****/

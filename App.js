@@ -81,8 +81,8 @@ const HomeTabNavigator = createBottomTabNavigator(
       
       return {
         headerTitle: titleName,
-        headerStyle: { backgroundColor: '#2E5C65' },
-        headerTintColor: '#fff',
+        headerStyle: { backgroundColor: '#f5f5f2' },
+        headerTintColor: '#2E5C65',
       };
     },
     defaultNavigationOptions: ({ navigation }) => ({
@@ -90,7 +90,7 @@ const HomeTabNavigator = createBottomTabNavigator(
         const { routeName } = navigation.state;
         let iconName;
         if (routeName === 'Home') {
-          iconName = Platform.OS === "ios" ? 'ios-home' : 'md-home';
+          iconName = Platform.OS === "ios" ? 'ios-pin' : 'md-pin';
         } else if (routeName === 'Search') {
           iconName = Platform.OS === "ios" ? 'ios-search' : 'md-search';
         } else if (routeName === 'Date') {
@@ -111,15 +111,19 @@ const HomeStackNavigator = createStackNavigator(
     support: { 
       screen: Support,
       navigationOptions: () => ({
-        title: 'Support',
-        headerBackTitle: null
+        title: 'Contact Us',
+        headerBackTitle: null,
+        headerStyle: { backgroundColor: '#f5f5f2' },
+        headerTintColor: '#2E5C65',
       })
     },
     about: { 
       screen: About,
       navigationOptions: () => ({
-        title: 'About US',
-        headerBackTitle: null
+        title: 'About Us',
+        headerBackTitle: null,
+        headerStyle: { backgroundColor: '#f5f5f2' },
+        headerTintColor: '#2E5C65',
       })
     },
   },
@@ -128,13 +132,13 @@ const HomeStackNavigator = createStackNavigator(
       return {
         headerLeft: (
           <TouchableOpacity style={[style.touchable, { paddingLeft:10 }]} onPress={() => navigation.toggleDrawer()} >
-            <Icon name={Platform.OS === "ios" ? "ios-menu" : "md-menu"} color='#fff' size={30}  />
+            <Icon name={Platform.OS === "ios" ? "ios-menu" : "md-menu"} color='#2E5C65' size={30}  />
           </TouchableOpacity>
         ),
         headerRight: (
           <Image
             style={{ height: 35, width: 35, marginRight: 10, }}
-            source={ require('./app/assets/png/HBD_logo_white_small.png') }
+            source={ require('./app/assets/png/HBD_logo_color_small.png') }
           />
         ),
         headerStyle: { backgroundColor: '#2E5C65' },

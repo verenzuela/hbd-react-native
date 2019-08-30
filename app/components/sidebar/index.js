@@ -87,7 +87,7 @@ export default class Sidebar extends Component {
           <TouchableOpacity activeOpacity={0.8} style={sidebarNavBarItemHeader} onPress={ this.navigateToScreen('Home') } >
             <View style={sidebarNavBarItemCont}>
               <View style={sidebarNavBarImg}>
-                <Text><Icon style={[iconColor, sidebarIconSize]} name={Platform.OS === "ios" ? "ios-home" : "md-home"} /></Text>
+                <Text><Icon style={[iconColor, sidebarIconSize]} name={Platform.OS === "ios" ? "ios-pin" : "md-pin"} /></Text>
               </View>
               <Text style={sidebarNavBarItemTxt}>Home</Text>
             </View>
@@ -116,7 +116,7 @@ export default class Sidebar extends Component {
               <View style={sidebarNavBarImg}>
                 <Text><Icon style={[iconColor, sidebarIconSize]} name={Platform.OS === "ios" ? "ios-call" : "md-call"} /></Text>
               </View>
-              <Text style={sidebarNavBarItemTxt}>Support</Text>
+              <Text style={sidebarNavBarItemTxt}>Contact Us</Text>
             </View>
           </TouchableOpacity>
 

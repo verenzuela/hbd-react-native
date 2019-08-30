@@ -4,6 +4,7 @@ import {
   View,
   ActivityIndicator,
   FlatList,
+  TouchableOpacity,
 } from 'react-native';
 import hotelsbydayApi from '../../api/hotelsbyday.js';
 import Styles from '../../commons/styles';
@@ -97,6 +98,8 @@ export default class Maps extends Component {
       centerAll,
       iconColor,
       borderColor,
+      backgroundColor,
+      mapsSearchbuttons
     } = Styles;
 
     if(this.state.loading){
@@ -111,8 +114,23 @@ export default class Maps extends Component {
     if(this.state.hotels_count == 0){
       return (
         <View style={[container, centerAll]}>
-          <View style={[ centerAll, { width:'100%', height: 50, backgroundColor: '#FAF8F8', } ]}>
-            <Text style={{ fontSize: 18, }}> City: {this.state.location} - Arrival: { moment( this.state.dateArrival ).format('MMM D, Y')}  </Text>
+          <View style={[ centerAll, backgroundColor, { width:'100%', height: 60, flexDirection: 'row' } ]}>
+
+            <View style={[container ]}>
+              <TouchableOpacity style={[ mapsSearchbuttons ]} >
+                <View style={[container, centerAll]}>
+                  <Text style={{ fontSize: 18, color: '#2E5C65' }}> City: {this.state.location} </Text>
+                </View>
+              </TouchableOpacity>
+            </View>
+            <View style={[container ]}>
+              <TouchableOpacity style={[ mapsSearchbuttons ]} >
+                <View style={[container, centerAll]}>
+                  <Text style={{ fontSize: 18, color: '#2E5C65' }}> Arrival: { moment( this.state.dateArrival ).format('MMM D, Y')}  </Text>
+                </View>
+              </TouchableOpacity>
+            </View>
+          
           </View>
           <View style={[container, centerAll]}>
             <Text style={{ margin:20, }}>No hotels found, please chose another location or change your arrival date...</Text>
@@ -123,9 +141,25 @@ export default class Maps extends Component {
       return (
         <View style={[container, centerAll]}>
 
-          <View style={[ centerAll, { width:'100%', height: 50, backgroundColor: '#FAF8F8', } ]}>
-            <Text style={{ fontSize: 18, }}> City: {this.state.location} - Arrival: { moment( this.state.dateArrival ).format('MMM D, Y')} </Text>
+          <View style={[ centerAll, backgroundColor, { width:'100%', height: 60, flexDirection: 'row' } ]}>
+
+            <View style={[container ]}>
+              <TouchableOpacity style={[ mapsSearchbuttons ]} >
+                <View style={[container, centerAll]}>
+                  <Text style={{ fontSize: 18, color: '#2E5C65' }}> City: {this.state.location} </Text>
+                </View>
+              </TouchableOpacity>
+            </View>
+            <View style={[container ]}>
+              <TouchableOpacity style={[ mapsSearchbuttons ]} >
+                <View style={[container, centerAll]}>
+                  <Text style={{ fontSize: 18, color: '#2E5C65' }}> Arrival: { moment( this.state.dateArrival ).format('MMM D, Y')}  </Text>
+                </View>
+              </TouchableOpacity>
+            </View>
+          
           </View>
+
 
           <View style={[container, centerAll]}>
             
