@@ -13,7 +13,7 @@ import {
 import Geolocation from '@react-native-community/geolocation';
 import { NavigationActions } from "react-navigation";
 import MapView, { Marker, PROVIDER_GOOGLE, Callout } from 'react-native-maps';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from 'react-native-vector-icons/Ionicons';
 import hotelsbydayApi from '../../api/hotelsbyday.js';
 import googlemaps from '../../api/googlemaps.js';
 import Styles from '../../commons/styles';
@@ -155,12 +155,12 @@ export default class Maps extends Component {
       { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
     );
 
-    //that.watchID = Geolocation.watchPosition((position) => {
-    //  const currentLongitude = JSON.stringify(position.coords.longitude);
-    //  const currentLatitude = JSON.stringify(position.coords.latitude);
-    //  that.setState({ currentLongitude:currentLongitude });
-    //  that.setState({ currentLatitude:currentLatitude });
-    //});
+    that.watchID = Geolocation.watchPosition((position) => {
+      const currentLongitude = JSON.stringify(position.coords.longitude);
+      const currentLatitude = JSON.stringify(position.coords.latitude);
+      that.setState({ currentLongitude:currentLongitude });
+      that.setState({ currentLatitude:currentLatitude });
+    });
   };
 
 
@@ -298,11 +298,10 @@ export default class Maps extends Component {
           <View style={{ width: 270 }} >
             <Text style={{ fontSize: 14, fontWeight: 'bold' }} >{items.name}</Text>
 
-            {items.rooms.map( (room,index) => (
-              
+            {items.rooms.map( (room,index) => (              
                 
               <Text key={index} style={{ fontSize: 12 }} >
-                <Icon color={ room.rate_type=='non-refundable' ? '#2E5C65' : '#f5f5f2' } size={14} name={Platform.OS === "ios" ? "card-bulleted" : "card-bulleted"} />
+                <Icon color={ room.rate_type=='non-refundable' ? 'red' : '#58543B' } size={14} name={Platform.OS === "ios" ? "ios-card" : "md-card"} />
                 <Text> &nbsp; </Text>
                 <Text >
                   {`${room.name} at ${room.discounted_price}${items.currency}. From ${moment(room.offer_date_from).format('hA')} - ${moment(room.offer_date_to).format('hA')} `}  
