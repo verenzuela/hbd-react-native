@@ -1,4 +1,6 @@
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet, Platform, Dimensions } from 'react-native';
+
+const width = Dimensions.get('window').width;
 
 export default StyleSheet.create({
     container: {
@@ -14,8 +16,17 @@ export default StyleSheet.create({
 	backgroundColor: {
 		backgroundColor: '#2E5C65',
 	},
+	backgroundColorLight: {
+		backgroundColor: '#f5f5f2',
+	},
 	borderColor: {
 		borderColor:'#2E5C65',
+	},
+	fontColorGreen: {
+		color: '#2E5C65',
+	},
+	fontSizeResponsive: {
+		fontSize: 0.030*width
 	},
 
 
@@ -85,6 +96,10 @@ export default StyleSheet.create({
 		marginLeft: 5, 
 		marginRight: 5
 	},
+	mapsSearchbuttonsTxt: {
+		fontSize: 0.033*width,
+		padding: 2,
+	},
 
 /**** END CSS SEARCH ****/
 /************************/
@@ -98,7 +113,7 @@ export default StyleSheet.create({
 		padding: 16,
 	},
 	searchTxtInput: {
-		fontSize: 16,
+		fontSize: 14,
 		height: 40,
 		borderWidth: 1,
 		paddingLeft: 10,
@@ -106,7 +121,7 @@ export default StyleSheet.create({
 	},
 	searchTxtStyle: {
 		padding: 10,
-		fontSize: 16,
+		fontSize: 18,
 	},
 	searchBtnCurrentLocation: {
 		height: 50, 

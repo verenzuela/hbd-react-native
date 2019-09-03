@@ -77,10 +77,6 @@ export default class Sidebar extends Component {
             </TouchableOpacity>
           </View>
         </View>
-                  
-        <TouchableOpacity activeOpacity={0.5} style={ sidebarClose } onPress={this.props.pressClose} >
-          <Icon style={[ iconColor, sidebarIconSize, { paddingLeft: 10 }]} name="md-close" />
-        </TouchableOpacity>
         
         <ScrollView>
 

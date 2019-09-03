@@ -2,6 +2,7 @@
   package="com.hbd">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <application
       android:name=".MainApplication"
@@ -9,8 +10,9 @@
       android:icon="@mipmap/ic_launcher"
       android:roundIcon="@mipmap/ic_launcher_round"
       android:allowBackup="false"
-      android:theme="@style/AppTheme">
-
+      android:theme="@style/AppTheme"
+      android:usesCleartextTraffic="true"
+    >
       <meta-data
         android:name="com.google.android.geo.API_KEY"
         android:value="AIzaSyBv0OV5U05QauuBm3HYwdXt6sMNnUY1t6Q" />

@@ -39,7 +39,7 @@ export default App;
 const HomeTabNavigator = createBottomTabNavigator(
   { 
     Home: { 
-      screen: props => <Maps {...props} location={'Miami'} dateArrival={date.format('YYYY-MM-DD')} />,
+      screen: props => <Maps {...props} location={null} dateArrival={date.format('YYYY-MM-DD')} />,
       navigationOptions: {
         title: 'Home',
       },

@@ -80,6 +80,20 @@ export default class hotelsbyday {
 
 	getHotelsByGeo = (lat, lon, date) => {
 
+		let url = hotelsbyday.getQueryApiURL('v3');
+		let options = {
+			method: "GET",
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json',
+				'Authorization': `Basic ${this.base64.encode(this.hbd_usr + ":" + this.hbd_pss)}` 
+			}
+        };
+
+		url += `/hotels?lat=${lat}&lon=${lon}&language=en-US&specific_date=${date}`;
+
+		return this.urlFetch(url, options);
+
 	}
 
 }

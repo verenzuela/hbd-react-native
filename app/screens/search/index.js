@@ -43,6 +43,12 @@ export default class Search extends Component {
 
   };
 
+  currentlocation = () => {
+    this.props.navigation.navigate('Home', {
+      currentLocation: 'get',
+    });
+  };
+
   changeCity = (cityName) => {
     this.props.navigation.navigate('Home', {
       location: cityName,
@@ -68,16 +74,21 @@ export default class Search extends Component {
     });
   };
 
+  
   onDayPress = (date) => {
     this.changeDate(date);
   };
 
+
   onCityPress = (city) => {
-    this.changeCity(city);
+    if(city != ''){
+      this.changeCity(city);
+    }    
   };
 
+
   getCityByLocation = () => {
-    console.warn('Get city by location');
+    this.currentlocation();
   };
 
 
@@ -195,7 +206,7 @@ export default class Search extends Component {
       );
     }
     
-
+    
     return(
       <View style={[container, centerAll]}>
         <Text> Change { this.state.changeType } </Text>
